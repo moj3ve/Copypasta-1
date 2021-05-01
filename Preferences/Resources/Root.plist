@@ -251,7 +251,7 @@
 			<key>min</key>
 			<real>150.0</real>
 			<key>max</key>
-			<real>400.0</real>
+			<real>500.0</real>
 			<key>showValue</key>
 			<true/>
 			<key>isSegmented</key>

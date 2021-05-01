@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>CopypastaPrefs</string>
+	<string>CopypastaPreferences</string>
 	<key>CFBundleIdentifier</key>
 	<string>love.litten.copypastapreferences</string>
 	<key>CFBundleInfoDictionaryVersion</key>

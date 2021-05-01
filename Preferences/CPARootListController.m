@@ -26,7 +26,7 @@
     self.navigationItem.titleView = [UIView new];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [[self titleLabel] setFont:[UIFont boldSystemFontOfSize:17]];
-    [[self titleLabel] setText:@"1.3.3"];
+    [[self titleLabel] setText:@"1.3.4"];
     [[self titleLabel] setTextColor:[UIColor whiteColor]];
     [[self titleLabel] setTextAlignment:NSTextAlignmentCenter];
     [[[self navigationItem] titleView] addSubview:[self titleLabel]];
@@ -42,7 +42,7 @@
 
     self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [[self iconView] setContentMode:UIViewContentModeScaleAspectFit];
-    [[self iconView] setImage:[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/CopypastaPrefs.bundle/icon.png"]];
+    [[self iconView] setImage:[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/CopypastaPreferences.bundle/icon.png"]];
     [[self iconView] setAlpha:0.0];
     [[[self navigationItem] titleView] addSubview:[self iconView]];
 
@@ -62,7 +62,7 @@
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     [[self headerImageView] setContentMode:UIViewContentModeScaleAspectFill];
-    [[self headerImageView] setImage:[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/CopypastaPrefs.bundle/Banner.png"]];
+    [[self headerImageView] setImage:[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/CopypastaPreferences.bundle/Banner.png"]];
     [[self headerImageView] setClipsToBounds:YES];
     [[self headerView] addSubview:[self headerImageView]];
 
@@ -73,24 +73,6 @@
         [self.headerImageView.trailingAnchor constraintEqualToAnchor:self.headerView.trailingAnchor],
         [self.headerImageView.bottomAnchor constraintEqualToAnchor:self.headerView.bottomAnchor],
     ]];
-
-    size_t size;
-    cpu_type_t type;
-    cpu_subtype_t subtype;
-    size = sizeof(type);
-    sysctlbyname("hw.cputype", &type, &size, NULL, 0);
-    size = sizeof(subtype);
-    sysctlbyname("hw.cpusubtype", &subtype, &size, NULL, 0);
-
-    if (type == 16777228 && subtype == 2) {
-        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Copypasta" message:@"You're using an arm64e device, you may or may not experience issues with this tweak on this architecture\n\n If some system apps start crashing, either uninstall this tweak or install choicy and blacklist Copypasta from injecting into that app" preferredStyle:UIAlertControllerStyleAlert];
-
-        UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"Understood" style:UIAlertActionStyleDestructive handler:nil];
-
-        [alertController addAction:confirmAction];
-
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/Copypasta.disabled"]) {
         [[self enableSwitch] setEnabled:NO];

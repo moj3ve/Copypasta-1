@@ -6,7 +6,7 @@ Minimalist clipboard manager
 2. Install Copypasta
 
 ## Compiling
-  - Depends on applist and libGcUniversal
+  - Depends on applist, libsparkapplist and libGcUniversal
   - You may want to edit the `Makefiles` to suit your theos installation
 
 ## Note
